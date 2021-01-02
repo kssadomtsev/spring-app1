@@ -1,23 +1,25 @@
 package ru.onyxone;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
 import java.util.ArrayList;
 import java.util.List;
 
+@Component
 public class MusicPlayer {
-    private List<Music> musics = new ArrayList<>();
+    private ClassicalMusic classicalMusic;
+    private RockMusic rockMusic;
     private String name;
     private int volume;
 
     public MusicPlayer() {
     }
 
-    // IoC
-    public MusicPlayer(List<Music> musics) {
-        this.musics = musics;
-    }
-
-    public void setMusics(List<Music> musics) {
-        this.musics = musics;
+    @Autowired
+    public MusicPlayer(ClassicalMusic classicalMusic, RockMusic rockMusic) {
+        this.classicalMusic = classicalMusic;
+        this.rockMusic = rockMusic;
     }
 
     public String getName() {
@@ -36,9 +38,7 @@ public class MusicPlayer {
         this.volume = volume;
     }
 
-    public void playMusic() {
-        for (Music music : musics) {
-            System.out.println("Playing: " + music.getSong());
-        }
+    public String playMusic() {
+        return classicalMusic.getSong();
     }
 }
