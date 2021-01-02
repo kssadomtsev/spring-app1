@@ -22,13 +22,14 @@
     </bean>
 
     <bean id="musicPlayer"
-          class="ru.onyxone.MusicPlayer">
+          class="ru.onyxone.MusicPlayer"
+          scope="prototype">
         <property name="musics">
-        <list>
-            <ref bean="rockMusicBean"/>
-            <ref bean="jazzMusicBean"/>
-            <ref bean="classicalMusicBean"/>
-        </list>
+            <list>
+                <ref bean="rockMusicBean"/>
+                <ref bean="jazzMusicBean"/>
+                <ref bean="classicalMusicBean"/>
+            </list>
         </property>
 
         <property name="name" value="${musicPlayer.name}"/>
