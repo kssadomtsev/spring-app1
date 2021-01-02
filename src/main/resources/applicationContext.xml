@@ -10,32 +10,35 @@
     <context:property-placeholder location="classpath:musicPlayer.properties"/>
 
     <bean id="rockMusicBean"
-          class="ru.onyxone.RockMusic">
+          class="ru.onyxone.RockMusic"
+          init-method="doInit"
+          destroy-method="doDestroy"
+          factory-method="getRockMusic">
     </bean>
 
-    <bean id="jazzMusicBean"
-          class="ru.onyxone.JazzMusic">
-    </bean>
+    <!--    <bean id="jazzMusicBean"-->
+    <!--          class="ru.onyxone.JazzMusic">-->
+    <!--    </bean>-->
 
-    <bean id="classicalMusicBean"
-          class="ru.onyxone.ClassicalMusic">
-    </bean>
+    <!--    <bean id="classicalMusicBean"-->
+    <!--          class="ru.onyxone.ClassicalMusic">-->
+    <!--    </bean>-->
 
-    <bean id="musicPlayer"
-          class="ru.onyxone.MusicPlayer"
-          scope="prototype">
-        <property name="musics">
-            <list>
-                <ref bean="rockMusicBean"/>
-                <ref bean="jazzMusicBean"/>
-                <ref bean="classicalMusicBean"/>
-            </list>
-        </property>
+    <!--    <bean id="musicPlayer"-->
+    <!--          class="ru.onyxone.MusicPlayer"-->
+    <!--          scope="prototype">-->
+    <!--        <property name="musics">-->
+    <!--            <list>-->
+    <!--                <ref bean="rockMusicBean"/>-->
+    <!--                <ref bean="jazzMusicBean"/>-->
+    <!--                <ref bean="classicalMusicBean"/>-->
+    <!--            </list>-->
+    <!--        </property>-->
 
-        <property name="name" value="${musicPlayer.name}"/>
+    <!--        <property name="name" value="${musicPlayer.name}"/>-->
 
-        <property name="volume" value="${musicPlayer.volume}"/>
-    </bean>
+    <!--        <property name="volume" value="${musicPlayer.volume}"/>-->
+    <!--    </bean>-->
 
 
 </beans>
