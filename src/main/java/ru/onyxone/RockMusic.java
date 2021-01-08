@@ -2,10 +2,7 @@ package ru.onyxone;
 
 import org.springframework.stereotype.Component;
 
-@Component
 public class RockMusic implements Music {
-    private RockMusic() {
-    }
 
     public static RockMusic getRockMusic() {
         return new RockMusic();
